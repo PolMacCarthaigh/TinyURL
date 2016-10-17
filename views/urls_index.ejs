@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>Tiny URL</title>
+</head>
+<body>
+<header>
+    <% include ./partials/_header %>
+  </header>
+
+  <h2>Tiny URL</h2>
+    <ul>
+      <% for (key in urls) { %>
+          <li>
+            <span><%= key%>:</span>
+            <span><a href="/u/<%= key%>"><%= urls[key] %></a></span>
+            <span><a href="/urls/<%= key%>">Edit</a></span>
+            <form action="/urls/<%= key%>/delete" method="POST" >
+              <input type="submit" value="Delete"/>
+            </form>
+          </li>
+      <% }; %>
+    </ul>
+
+  <a href="/urls/new">Create a new TinyURL here... </a>
+</body>
+</html>
